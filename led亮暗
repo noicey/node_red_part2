@@ -1,0 +1,132 @@
+[
+    {
+        "id": "ca4207ef.021288",
+        "type": "tab",
+        "label": "Flow 5",
+        "disabled": false,
+        "info": ""
+    },
+    {
+        "id": "4d156d0.20f3294",
+        "type": "http in",
+        "z": "ca4207ef.021288",
+        "name": "set gpio5",
+        "url": "/setpio51",
+        "method": "get",
+        "upload": false,
+        "swaggerDoc": "",
+        "x": 170,
+        "y": 300,
+        "wires": [
+            [
+                "57f92d05.d875a4",
+                "28ef134e.d5d9ac"
+            ]
+        ]
+    },
+    {
+        "id": "57f92d05.d875a4",
+        "type": "function",
+        "z": "ca4207ef.021288",
+        "name": "set to 1",
+        "func": "msg.payload=1;\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 320,
+        "y": 300,
+        "wires": [
+            [
+                "66efb707.03cb78"
+            ]
+        ]
+    },
+    {
+        "id": "66efb707.03cb78",
+        "type": "rpi-gpio out",
+        "z": "ca4207ef.021288",
+        "name": "",
+        "pin": "7",
+        "set": "",
+        "level": "0",
+        "freq": "",
+        "out": "out",
+        "x": 500,
+        "y": 300,
+        "wires": []
+    },
+    {
+        "id": "28ef134e.d5d9ac",
+        "type": "function",
+        "z": "ca4207ef.021288",
+        "name": "return",
+        "func": "msg.payload=\"GPIO5 set to HIGH\";\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 310,
+        "y": 400,
+        "wires": [
+            [
+                "b3eb74d.2530388",
+                "ab32f057.ed84"
+            ]
+        ]
+    },
+    {
+        "id": "b3eb74d.2530388",
+        "type": "http response",
+        "z": "ca4207ef.021288",
+        "name": "",
+        "statusCode": "",
+        "headers": {},
+        "x": 510,
+        "y": 400,
+        "wires": []
+    },
+    {
+        "id": "ab32f057.ed84",
+        "type": "debug",
+        "z": "ca4207ef.021288",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "x": 520,
+        "y": 480,
+        "wires": []
+    },
+    {
+        "id": "9b860f8a.a9102",
+        "type": "http in",
+        "z": "ca4207ef.021288",
+        "name": "set gpio5",
+        "url": "/setpio5",
+        "method": "get",
+        "upload": false,
+        "swaggerDoc": "",
+        "x": 160,
+        "y": 600,
+        "wires": [
+            [
+                "44062c55.222334"
+            ]
+        ]
+    },
+    {
+        "id": "44062c55.222334",
+        "type": "function",
+        "z": "ca4207ef.021288",
+        "name": "clean  to 0",
+        "func": "msg.payload=0;\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 320,
+        "y": 600,
+        "wires": [
+            [
+                "66efb707.03cb78"
+            ]
+        ]
+    }
+]
